@@ -1,0 +1,96 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "article",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "available": {
+      "type": "boolean",
+      "default": true
+    },
+    "nombre": {
+      "type": "integer"
+    },
+    "paniers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::panier.panier",
+      "mappedBy": "article"
+    },
+    "categorie": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::categorie.categorie",
+      "inversedBy": "articles"
+    },
+    "preferences": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::preference.preference",
+      "mappedBy": "article"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "reduction": {
+      "type": "decimal"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "article"
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "notes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::note.note",
+      "mappedBy": "article"
+    },
+    "affiches": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::affiche.affiche",
+      "mappedBy": "article"
+    },
+    "commandes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::commande.commande",
+      "mappedBy": "article"
+    }
+  }
+}
