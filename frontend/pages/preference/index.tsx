@@ -90,7 +90,7 @@ const IndexPage = ({ categories }: any) => {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("userJwt")}`,
+          //Authorization: `Bearer ${localStorage.getItem("userJwt")}`,
         },
       }
     )
@@ -159,7 +159,7 @@ const IndexPage = ({ categories }: any) => {
                 key={index}
                 disabled={
                   clickedPref.includes(categorie.id) ||
-                  !!userPref.find(
+                  !!(userPref || []).find(
                     (pref) => pref.attributes.categorie.data.id === categorie.id
                   )
                 }
@@ -206,7 +206,11 @@ export async function getServerSideProps() {
     },
   });
 
+
   const categories = await data.json();
+
+  console.log('categorie',categories)
+
 
   return { props: { categories: categories?.data } };
 }

@@ -157,7 +157,6 @@ const CustomCarousel = ({
                   key={index}
                   width={width}
                   height={height}
-                  loading="eager"
                   src={url}
                   alt="article détail"
                 />
@@ -199,7 +198,6 @@ const CustomCarousel = ({
                   <Image
                     objectFit="contain"
                     layout="fill"
-                    loading="eager"
                     src={url}
                     alt="affiche publicitaire"
                   />

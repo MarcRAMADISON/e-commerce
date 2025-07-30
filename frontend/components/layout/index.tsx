@@ -41,7 +41,9 @@ const Layout = ({
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          maxWidth: "1600px"
+          maxWidth: "1600px",
+          placeSelf:"center",
+          margin:"auto"
         }}
       >
         {showMenuBar && (

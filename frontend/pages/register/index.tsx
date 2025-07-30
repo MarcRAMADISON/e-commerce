@@ -87,7 +87,7 @@ const IndexPage = ({ avatars }) => {
       });
   };
 
-  const handleClickAvatar = (event, id) => {
+  const handleClickAvatar = (event:any, id:any) => {
     event.preventDefault();
     setValues((prev) => ({ ...prev, avatar: id }));
   };
@@ -148,7 +148,7 @@ const IndexPage = ({ avatars }) => {
             width: "100%",
           }}
         >
-          {avatars.map((avatar) => {
+          {avatars.map((avatar:any,index:any) => {
             const url = avatar?.avatarUrl?.formats
               ? avatar?.avatarUrl?.formats?.thumbnail?.url
               : avatar?.avatarUrl?.url;
@@ -156,6 +156,7 @@ const IndexPage = ({ avatars }) => {
 
             return (
               <Box
+                key={index}
                 sx={{
                   display: "flex",
                   justifyContent: "center",
@@ -211,6 +212,7 @@ export const getServerSideProps = async () => {
     "http://localhost:1337/api/avatars?populate=avatarImage"
   );
   const data = await result.json();
+
 
   return {
     props: {

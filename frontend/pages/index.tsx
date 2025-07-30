@@ -129,21 +129,6 @@ const IndexPage = ({
     [idUser, userJwt, route, setRefetch]
   );
 
-  console.log(
-    "count",
-    filtredArticle,
-    Math.ceil(filtredArticle?.total / filtredArticle?.limit),
-    Math.ceil(filtredArticle?.articles?.data?.length / filtredArticle?.limit),
-    pageArticlesCount,
-    Math.ceil(filtredArticle?.articles?.data?.length / 6),
-    filtredArticle &&
-      (filtredArticle?.total || filtredArticle?.type === "categorie")
-      ? Math.ceil(filtredArticle?.total / filtredArticle?.limit)
-      : filtredArticle && filtredArticle?.articles?.type === "search"
-      ? Math.ceil(filtredArticle?.articles?.data?.length / 6)
-      : pageArticlesCount
-  );
-
   return (
     <Layout
       categories={categories}
@@ -192,7 +177,7 @@ const IndexPage = ({
           ) : (
             <></>
           )}
-          {data.length ? (
+          {(data || []).length ? (
             <>
               <Box
                 style={{

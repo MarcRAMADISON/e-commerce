@@ -7,7 +7,8 @@ export const paperStyle = {
     maxWidth:'1600px',
     height: '60px',
     position:'fixed',
-    left:'0px',
+    left:'50%',
+    transform: 'translateX(-50%)',
     zIndex:'1400',
     marginTop:'-10px',
     '& .css-epjfqg-MuiBadge-badge':{

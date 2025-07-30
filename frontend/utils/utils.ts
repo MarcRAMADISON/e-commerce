@@ -15,11 +15,11 @@ export const UserContext = createContext({ articlesContext: [], setArticleContex
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#C74CFF',
+      main: '#1E2460',
       contrastText: '#fff'
     },
     secondary: {
-      main: '#FFC74C',
+      main: '#025669',
       contrastText: '#fff'
     },
     error: {

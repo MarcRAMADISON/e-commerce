@@ -54,12 +54,15 @@ const IndexPage = () => {
           const pageCount = Math.ceil(
             data?.meta?.pagination?.total / data?.meta?.pagination?.limit
           );
-          setCount(pageCount);
-          const articles = data?.data.map((d) => ({
-            ...d?.attributes,
-            id: d?.id,
-          }));
-          setData(articles);
+          if(data?.data){
+            setCount(pageCount);
+            const articles = data?.data.map((d) => ({
+              ...d?.attributes,
+              id: d?.id,
+            }));
+            setData(articles);
+          }
+          
         });
     }
   }, [router.query.type, idUser, userJwt]);
@@ -97,11 +100,13 @@ const IndexPage = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            const articles = data?.data.map((d) => ({
-              ...d?.attributes,
-              id: d?.id,
-            }));
-            setData(articles);
+            if(data?.data){
+              const articles = data?.data.map((d) => ({
+                ...d?.attributes,
+                id: d?.id,
+              }));
+              setData(articles);
+            }
           });
       }
     },
